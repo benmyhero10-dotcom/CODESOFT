@@ -1,166 +1,459 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aamil Qureshi | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
 body{
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right,#141e30,#243b55);
-    padding:20px;
-    color:white;
-}
-
-.container{
-    background: rgba(255,255,255,0.1);
-    padding:25px;
-    border-radius:15px;
-    backdrop-filter: blur(10px);
-    box-shadow:0px 0px 20px rgba(0,0,0,0.4);
-}
-
-h1{
-    color:#00bfff;
-    font-size:40px;
-}
-
-h2{
-    color:#00d4ff;
-    margin-top:30px;
-    border-bottom:2px solid #00d4ff;
-    display:inline-block;
-    padding-bottom:5px;
-}
-
-p,li{
-    font-size:18px;
-    line-height:1.7;
-}
-
-ul{
-    padding-left:20px;
-}
-
-img{
-    width:150px;
-    height:150px;
-    border-radius:50%;
-    border:4px solid white;
-    object-fit:cover;
-    margin-top:10px;
-}
-
-a{
-    color:#00d4ff;
-    text-decoration:none;
-}
-
-a:hover{
-    color:white;
-}
-
-.project:hover{
-transform:scale(1.03);
-transition:0.3s;
-box-shadow:0px 0px 15px #00d4ff;
-}
-
-button{
-background:#00d4ff;
+font-family:'Poppins',sans-serif;
+background:#0f172a;
 color:white;
-border:none;
-padding:12px 20px;
-border-radius:8px;
-font-size:16px;
-margin-top:10px;
-cursor:pointer;
+overflow-x:hidden;
+}
+
+body::before{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#00d4ff22;
+filter:blur(120px);
+top:-100px;
+left:-100px;
+z-index:-1;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#7c3aed22;
+filter:blur(120px);
+bottom:-100px;
+right:-100px;
+z-index:-1;
+}
+
+header{
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+backdrop-filter:blur(12px);
+background:rgba(15,23,42,0.5);
+z-index:1000;
+border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+color:#00d4ff;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+transition:0.3s;
+font-weight:500;
+}
+
+nav a:hover{
+color:#00d4ff;
+}
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:80px 8%;
+gap:60px;
+flex-wrap:wrap;
+}
+
+.hero-image img{
+width:320px;
+height:320px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #00d4ff;
+box-shadow:0 0 40px #00d4ff88;
+transition:0.4s;
+}
+
+.hero-image img:hover{
+transform:scale(1.05) rotate(2deg);
+box-shadow:0 0 60px #00d4ff;
+}
+
+.hero-content{
+max-width:600px;
+}
+
+.hero-content h1{
+font-size:60px;
+margin-bottom:10px;
+}
+
+.hero-content h1 span{
+color:#00d4ff;
+}
+
+.typing{
+font-size:28px;
+font-weight:600;
+color:#00d4ff;
+margin-bottom:20px;
+height:40px;
+}
+
+.hero-content p{
+font-size:18px;
+line-height:1.8;
+color:#d1d5db;
+margin-bottom:25px;
+}
+
+.buttons{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 28px;
+background:#00d4ff;
+color:#0f172a;
+text-decoration:none;
+font-weight:600;
+border-radius:12px;
+transition:0.3s;
+display:inline-block;
+}
+
+.btn:hover{
+transform:translateY(-4px);
+box-shadow:0 0 20px #00d4ff;
+}
+
+.btn-outline{
+background:transparent;
+border:2px solid #00d4ff;
+color:#00d4ff;
+}
+
+.btn-outline:hover{
+background:#00d4ff;
+color:#0f172a;
+}
+
+section{
+padding:100px 8%;
+}
+
+.section-title{
+font-size:42px;
+margin-bottom:50px;
+text-align:center;
+color:#00d4ff;
+}
+
+.about-box{
+background:rgba(255,255,255,0.05);
+padding:35px;
+border-radius:24px;
+backdrop-filter:blur(12px);
+line-height:1.9;
+font-size:18px;
+border:1px solid rgba(255,255,255,0.08);
 transition:0.3s;
 }
 
-button:hover{
-background:white;
-color:#141e30;
-box-shadow:0px 0px 15px #00d4ff;
+.about-box:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px rgba(0,212,255,0.25);
 }
 
-.social{
+.skills-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+}
+
+.skill-card{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+text-align:center;
+transition:0.3s;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.skill-card:hover{
+transform:translateY(-8px) scale(1.03);
+box-shadow:0 0 25px rgba(0,212,255,0.35);
+}
+
+.skill-card h3{
 margin-top:15px;
+font-size:22px;
 }
 
-.social a{
-margin-right:15px;
+.projects-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.project-card{
+background:rgba(255,255,255,0.05);
+border-radius:24px;
+overflow:hidden;
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.project-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(0,212,255,0.35);
+}
+
+.project-image{
+height:220px;
+background:linear-gradient(135deg,#00d4ff,#7c3aed);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+font-weight:700;
+}
+
+.project-content{
+padding:25px;
+}
+
+.project-content h3{
+margin-bottom:10px;
+font-size:24px;
+}
+
+.project-content p{
+line-height:1.7;
+color:#d1d5db;
+margin-bottom:20px;
+}
+
+.contact-box{
+background:rgba(255,255,255,0.05);
+padding:40px;
+border-radius:24px;
+text-align:center;
+border:1px solid rgba(255,255,255,0.08);
+}
+
+.contact-box p{
+margin:15px 0;
 font-size:18px;
 }
 
-.project{
-background:rgba(255,255,255,0.08);
-padding:15px;
-margin-top:15px;
-border-radius:10px;
+.social-links{
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
 }
 
-.project{
-transition:0.3s ease;
-}
-
-img:hover{
-transform:scale(1.05);
+.social-links a{
+text-decoration:none;
+color:white;
+padding:12px 20px;
+border:1px solid rgba(255,255,255,0.15);
+border-radius:12px;
 transition:0.3s;
-box-shadow:0px 0px 20px #00d4ff;
 }
 
+.social-links a:hover{
+background:#00d4ff;
+color:#0f172a;
+transform:translateY(-4px);
+box-shadow:0 0 20px #00d4ff;
+}
+
+footer{
+text-align:center;
+padding:30px;
+color:#94a3b8;
+border-top:1px solid rgba(255,255,255,0.08);
+}
+
+@media(max-width:768px){
+.hero-content h1{
+font-size:42px;
+}
+
+.typing{
+font-size:22px;
+}
+
+.hero-image img{
+width:240px;
+height:240px;
+}
+
+nav{
+display:none;
+}
+}
 </style>
 </head>
+
 <body>
 
+<header>
+<div class="logo">Aamil.dev</div>
+
+<nav>
+<a href="#about">About</a>
+<a href="#skills">Skills</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+
+<div class="hero-image">
 <img src="https://avatars.githubusercontent.com/u/227041267?s=400&u=9d9cd3d70ac7aa5186e4702db7f20495e696e8d5&v=4">
+</div>
 
-<div class="container">
- <h1>Aamil Qureshi</h1>
-  <p id="typing"></p>
+<div class="hero-content">
+<h1>Hi, I'm <span>Aamil Qureshi</span></h1>
+<div class="typing" id="typing"></div>
 
-<a href="https://instagram.com/aamil.explorer" target="_blank">
-<button>Hire Me</button>
-</a>
+<p>
+I create modern, stylish and responsive websites with smooth animations, clean UI and powerful frontend design. Passionate about building creative digital experiences.
+</p>
 
-<div class="social">
-<a href="https://github.com/hero10-dotcom" target="_blank">GitHub</a>
+<div class="buttons">
+<a href="https://instagram.com/aamil.explorer" target="_blank" class="btn">Hire Me</a>
 
-<a href="https://instagram.com/aamil.explorer" target="_blank">Instagram</a>
- 
-</div> 
+<a href="https://github.com/hero10-dotcom" target="_blank" class="btn btn-outline">GitHub</a>
+</div>
+</div>
 
-<h2>About Me</h2>
-  <p>I am learning web development and building projects using HTML and CSS.</p>
+</section>
 
-  <h2>Skills</h2>
-  <ul>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-  </ul>
+<section id="about">
+<h2 class="section-title">About Me</h2>
 
-  <h2>Projects</h2>
-  <div class="project">
+<div class="about-box">
+I am a passionate web developer focused on creating attractive, modern and user-friendly websites. I enjoy designing clean interfaces, adding smooth animations and building responsive layouts that work perfectly on all devices.
+</div>
+</section>
+
+<section id="skills">
+<h2 class="section-title">My Skills</h2>
+
+<div class="skills-grid">
+
+<div class="skill-card">
+<h3>HTML5</h3>
+<p>Semantic modern structure for websites.</p>
+</div>
+
+<div class="skill-card">
+<h3>CSS3</h3>
+<p>Responsive layouts, animations and UI design.</p>
+</div>
+
+<div class="skill-card">
+<h3>JavaScript</h3>
+<p>Interactive frontend functionality and effects.</p>
+</div>
+
+<div class="skill-card">
+<h3>GitHub</h3>
+<p>Deployment and project hosting using GitHub Pages.</p>
+</div>
+
+</div>
+</section>
+
+<section id="projects">
+<h2 class="section-title">Projects</h2>
+
+<div class="projects-grid">
+
+<div class="project-card">
+<div class="project-image">Portfolio</div>
+<div class="project-content">
 <h3>Modern Portfolio Website</h3>
-<p>Designed and developed a responsive personal portfolio website using HTML and CSS with modern UI effects.</p>
+<p>Designed and developed a stylish responsive personal portfolio website with smooth animations and glassmorphism UI.</p>
+<a href="#" class="btn">View Project</a>
+</div>
 </div>
 
-<div class="project">
+<div class="project-card">
+<div class="project-image">Landing</div>
+<div class="project-content">
 <h3>Landing Page Design</h3>
-<p>Created a stylish landing page layout with gradient backgrounds, responsive sections and clean design.</p>
+<p>Created a clean landing page with modern layout, gradient effects and responsive sections.</p>
+<a href="#" class="btn">View Project</a>
+</div>
 </div>
 
-<div class="project">
+<div class="project-card">
+<div class="project-image">GitHub</div>
+<div class="project-content">
 <h3>GitHub Pages Deployment</h3>
-<p>Successfully hosted and managed a live website using GitHub Pages.</p>
+<p>Successfully hosted and managed live websites using GitHub Pages deployment workflow.</p>
+<a href="#" class="btn">View Project</a>
+</div>
 </div>
 
-  <h2>Contact</h2>
-  <p>Email: Aamil@gmail.com</p>
 </div>
+</section>
+
+<section id="contact">
+<h2 class="section-title">Contact Me</h2>
+
+<div class="contact-box">
+<p><strong>Email:</strong> Aamil@gmail.com</p>
+<p><strong>Instagram:</strong> @aamil.explorer</p>
+
+<div class="social-links">
+<a href="https://github.com/hero10-dotcom" target="_blank">GitHub</a>
+<a href="https://instagram.com/aamil.explorer" target="_blank">Instagram</a>
+</div>
+</div>
+</section>
+
+<footer>
+© 2026 Aamil Qureshi • All Rights Reserved
+</footer>
 
 <script>
-let text = "Passionate Web Developer 💻";
+const text = "Creative Web Developer 🚀";
 let i = 0;
 
 function typing(){
@@ -172,7 +465,7 @@ setTimeout(typing,100);
 }
 
 typing();
-
 </script>
+
 </body>
 </html>
