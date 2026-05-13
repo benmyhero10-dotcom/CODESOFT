@@ -57,6 +57,40 @@ a{
 a:hover{
     color:white;
 }
+
+.project:hover{
+transform:scale(1.03);
+transition:0.3s;
+box-shadow:0px 0px 15px #00d4ff;
+}
+
+button{
+background:#00d4ff;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+font-size:16px;
+margin-top:10px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:white;
+color:#141e30;
+box-shadow:0px 0px 15px #00d4ff;
+}
+
+.social{
+margin-top:15px;
+}
+
+.social a{
+margin-right:15px;
+font-size:18px;
+}
+
 .project{
 background:rgba(255,255,255,0.08);
 padding:15px;
@@ -66,9 +100,20 @@ border-radius:10px;
 </style>
 </head>
 <body>
+
+<img src="https://avatars.githubusercontent.com/u/227041267?s=400&u=9d9cd3d70ac7aa5186e4702db7f20495e696e8d5&v=4">
+
 <div class="container">
-  <h1>Aamil Qureshi</h1>
-  <p>Web Development Intern</p>
+ <h1>Aamil Qureshi</h1>
+  <p id="typing"></p>
+
+<button>Hire Me</button>
+
+<div class="social">
+<a href="https://github.com/hero10-dotcom" target="_blank">GitHub</a>
+
+<a href="https://instagram.com/" target="_blank">Instagram</a>
+</div>
 
   <h2>About Me</h2>
   <p>I am learning web development and building projects using HTML and CSS.</p>
@@ -99,5 +144,21 @@ border-radius:10px;
   <h2>Contact</h2>
   <p>Email: Aamil@gmail.com</p>
 </div>
+
+<script>
+let text = "Web Developer | Frontend Learner";
+let i = 0;
+
+function typing(){
+if(i < text.length){
+document.getElementById("typing").innerHTML += text.charAt(i);
+i++;
+setTimeout(typing,100);
+}
+}
+
+typing();
+
+</script>
 </body>
 </html>
