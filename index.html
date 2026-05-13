@@ -4,27 +4,63 @@
   <title>My Portfolio</title>
 <style>
 body{
-    font-family: Arial;
-    background:#f2f2f2;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right,#141e30,#243b55);
     padding:20px;
+    color:white;
+}
+
+.container{
+    background: rgba(255,255,255,0.1);
+    padding:25px;
+    border-radius:15px;
+    backdrop-filter: blur(10px);
+    box-shadow:0px 0px 20px rgba(0,0,0,0.4);
 }
 
 h1{
-    color:#0077ff;
+    color:#00bfff;
+    font-size:40px;
 }
 
 h2{
-    color:#222;
+    color:#00d4ff;
     margin-top:30px;
+    border-bottom:2px solid #00d4ff;
+    display:inline-block;
+    padding-bottom:5px;
 }
 
 p,li{
     font-size:18px;
+    line-height:1.7;
+}
+
+ul{
+    padding-left:20px;
+}
+
+img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    border:4px solid white;
+    object-fit:cover;
+    margin-top:10px;
+}
+
+a{
+    color:#00d4ff;
+    text-decoration:none;
+}
+
+a:hover{
+    color:white;
 }
 </style>
 </head>
 <body>
-
+<div class="container">
   <h1>Aamil Qureshi</h1>
   <p>Web Development Intern</p>
 
@@ -42,7 +78,7 @@ p,li{
   <p>Portfolio Website</p>
 
   <h2>Contact</h2>
-  <p>Email: yourmail@gmail.com</p>
-
+  <p>Email: Aamil@gmail.com</p>
+</div>
 </body>
 </html>
